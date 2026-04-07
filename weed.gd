@@ -12,7 +12,7 @@ func _ready() -> void:
 
 
 func set_text():
-	hydroid.text = "Weed Smoked: " + str(smoke_counter)
+	hydroid.text = "Wed Smoked: " + str(smoke_counter)
 
 func _on_button_button_down() -> void:
 	if cooldown:
