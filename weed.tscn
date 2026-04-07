@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://645kh7qbcjg"]
+
+[ext_resource type="Script" uid="uid://bfkdme8oma0ac" path="res://weed.gd" id="1_vfkmi"]
+
+[node name="Control" type="Control" unique_id=1805870224 node_paths=PackedStringArray("mesa", "hydroid")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vfkmi")
+mesa = NodePath("Button")
+hydroid = NodePath("Label")
+
+[node name="Label" type="Label" parent="." unique_id=799084153]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 200.0
+offset_right = 400.0
+offset_bottom = 400.0
+theme_override_font_sizes/font_size = 42
+text = "different"
+
+[node name="Button" type="Button" parent="." unique_id=2056238024]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 100.0
+theme_override_font_sizes/font_size = 48
+text = "eggnog"
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
