@@ -1,8 +1,15 @@
 [gd_scene format=3 uid="uid://645kh7qbcjg"]
 
 [ext_resource type="Script" uid="uid://bfkdme8oma0ac" path="res://weed.gd" id="1_vfkmi"]
+[ext_resource type="AudioStream" uid="uid://by4jd6vfwiffh" path="res://audio/weed_sound.mp3" id="2_s1iow"]
 
-[node name="Control" type="Control" unique_id=1805870224 node_paths=PackedStringArray("mesa", "hydroid")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vfkmi"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s1iow"]
+bg_color = Color(0.2231029, 0.2231029, 0.22310278, 1)
+
+[node name="Weed" type="Control" unique_id=1805870224 node_paths=PackedStringArray("weed_button", "hydroid", "weed_sound")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,23 +17,52 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vfkmi")
-mesa = NodePath("Button")
+weed_button = NodePath("Button")
 hydroid = NodePath("Label")
+weed_sound = NodePath("WeedSound")
+
+[node name="Panel" type="Panel" parent="." unique_id=848650539]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vfkmi")
 
 [node name="Label" type="Label" parent="." unique_id=799084153]
-layout_mode = 0
-offset_left = 200.0
-offset_top = 200.0
-offset_right = 400.0
-offset_bottom = 400.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 112.0
+offset_right = 150.0
+offset_bottom = 312.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.60784316, 1, 0.24705882, 1)
 theme_override_font_sizes/font_size = 42
-text = "different"
+text = "Weed Smoked:"
 
 [node name="Button" type="Button" parent="." unique_id=2056238024]
-layout_mode = 0
-offset_right = 200.0
-offset_bottom = 100.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -297.0
+offset_right = 100.0
+offset_bottom = -197.0
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_font_sizes/font_size = 48
-text = "eggnog"
+theme_override_styles/normal = SubResource("StyleBoxFlat_s1iow")
+text = "Smoke"
+
+[node name="WeedSound" type="AudioStreamPlayer" parent="." unique_id=425181046]
+stream = ExtResource("2_s1iow")
+volume_db = -13.0
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
